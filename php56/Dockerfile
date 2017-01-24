@@ -60,6 +60,7 @@ RUN set -ex \
 
 # Apache + PHP requires preforking Apache for best results
 RUN a2dismod mpm_event && a2enmod mpm_prefork
+RUN a2enmod rewrite && a2enmod headers && a2enmod rewrite
 
 # logs should go to stdout / stderr
 RUN set -ex \
